@@ -1,0 +1,113 @@
+Linking to GEOS 3.12.0, GDAL 3.8.1, PROJ 9.3.1; sf_use_s2() is TRUE
+There were 12 warnings (use warnings() to see them)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: usethis
+ℹ Loading redist
+Loading required package: redistmetrics
+Split [0/51] ■                                | ETA?
+Split [1/51] ■■                               | ETA38m
+Split [2/51] ■■                               | ETA24m
+Split [3/51] ■■■                              | ETA19m
+Split [4/51] ■■■                              | ETA15m
+Split [5/51] ■■■■                             | ETA13m
+Split [6/51] ■■■■■                            | ETA12m
+Split [7/51] ■■■■■                            | ETA11m
+Split [8/51] ■■■■■■                           | ETA10m
+Split [9/51] ■■■■■■                           | ETA10m
+Split [10/51] ■■■■■■■                          | ETA 9m
+Split [11/51] ■■■■■■■                          | ETA 8m
+Split [12/51] ■■■■■■■■                         | ETA 8m
+Split [13/51] ■■■■■■■■■                        | ETA 7m
+Split [14/51] ■■■■■■■■■                        | ETA 7m
+Split [15/51] ■■■■■■■■■■                       | ETA 7m
+Split [16/51] ■■■■■■■■■■                       | ETA 6m
+Split [17/51] ■■■■■■■■■■■                      | ETA 6m
+Split [18/51] ■■■■■■■■■■■■                     | ETA 6m
+Split [19/51] ■■■■■■■■■■■■                     | ETA 5m
+Split [20/51] ■■■■■■■■■■■■■                    | ETA 5m
+Split [21/51] ■■■■■■■■■■■■■                    | ETA 5m
+Split [22/51] ■■■■■■■■■■■■■■                   | ETA 5m
+Split [23/51] ■■■■■■■■■■■■■■■                  | ETA 4m
+Split [24/51] ■■■■■■■■■■■■■■■                  | ETA 4m
+Split [25/51] ■■■■■■■■■■■■■■■■                 | ETA 4m
+Split [26/51] ■■■■■■■■■■■■■■■■                 | ETA 4m
+Split [27/51] ■■■■■■■■■■■■■■■■■                | ETA 4m
+Split [28/51] ■■■■■■■■■■■■■■■■■                | ETA 3m
+Split [29/51] ■■■■■■■■■■■■■■■■■■               | ETA 3m
+Split [30/51] ■■■■■■■■■■■■■■■■■■■              | ETA 3m
+Split [31/51] ■■■■■■■■■■■■■■■■■■■              | ETA 3m
+Split [32/51] ■■■■■■■■■■■■■■■■■■■■             | ETA 3m
+Split [33/51] ■■■■■■■■■■■■■■■■■■■■             | ETA 2m
+Split [34/51] ■■■■■■■■■■■■■■■■■■■■■            | ETA 2m
+Split [35/51] ■■■■■■■■■■■■■■■■■■■■■■           | ETA 2m
+Split [36/51] ■■■■■■■■■■■■■■■■■■■■■■           | ETA 2m
+Split [37/51] ■■■■■■■■■■■■■■■■■■■■■■■          | ETA 2m
+Split [38/51] ■■■■■■■■■■■■■■■■■■■■■■■          | ETA 2m
+Split [39/51] ■■■■■■■■■■■■■■■■■■■■■■■■         | ETA 1m
+Split [40/51] ■■■■■■■■■■■■■■■■■■■■■■■■■        | ETA 1m
+Split [41/51] ■■■■■■■■■■■■■■■■■■■■■■■■■        | ETA 1m
+Split [42/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■       | ETA 1m
+Split [43/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■       | ETA 1m
+Split [44/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■■      | ETA 1m
+Split [45/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■■      | ETA43s
+Split [46/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■     | ETA35s
+Split [48/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■    | ETA21s
+Split [49/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   | ETA14s
+Split [50/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   | ETA 7s
+Split [51/51] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  | ETA 0s
+
+SMC: 20 sampled plans of 52 districts on 9,129 units
+`adapt_k_thresh`=0.985 • `seq_alpha`=0.5
+`est_label_mult`=1 • `pop_temper`=0.001
+Plan diversity 80% range: 0.0088 to 0.0293
+✖ WARNING: Low plan diversity
+Sampling diagnostics for SMC run 1 of 1 (20 samples)
+• Watch out for low effective samples, very low acceptance rates (less than
+1%), large std. devs. of the log weights (more than 3 or so), and low numbers
+of unique plans. R-hat values for summary statistics should be between 1 and
+1.05.
+• Low diversity: Check for potential bottlenecks. Increase the number of
+samples. Examine the diversity plot with `hist(plans_diversity(plans),
+breaks=24)`. Consider weakening or removing constraints, or increasing the
+population tolerance. If the acceptance rate drops quickly in the final splits,
+try increasing `pop_temper` by 0.01.
+• (*) Bottlenecks found: Consider weakening or removing constraints, or
+increasing the population tolerance. If the acceptance rate drops quickly in
+the final splits, try increasing `pop_temper` by 0.01. If the weight variance
+(Log wgt. sd) increases steadily or is particularly large for the "Resample"
+step, consider increasing `seq_alpha`. To visualize what geographic areas may
+be causing problems, try running the following code. Highlighted areas are
+those that may be causing the bottleneck.
+	Command being timed: "Rscript smc_cli.R --rds_map examples/CA_cd_2020_map.rds --n_sims 20 --rng_seed 45079254 --pop_temper 0.001 --output_file examples/outputs/CA_cd_2020_map/45079254_CA_cd_2020_map_with_20_sims.csv"
+	User time (seconds): 3658.54
+	System time (seconds): 0.22
+	Percent of CPU this job got: 1084%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:37.27
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 319320
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 67681
+	Voluntary context switches: 16313
+	Involuntary context switches: 43187
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 504
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
