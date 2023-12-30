@@ -24,7 +24,6 @@ for n_sims in "${sims_list[@]}"; do
         --rds_map "${map_dir}${map_name}.rds" \
         --n_sims $n_sims \
         --rng_seed $rng_seed \
-        --pop_temper 0.001 \
         --output_file "${output_dir}/${rng_seed}_${map_name}_with_${n_sims}_sims.csv" \
         > "${output_dir}/${rng_seed}_${map_name}_with_${n_sims}_sims.jsonl" \
         2> "${log_dir}/${rng_seed}_${map_name}_with_${n_sims}_sims.log"

@@ -41,6 +41,8 @@ Here are some brief descriptions of the files and folders contained within this 
   are 1000 seeds in total, and this list is included since different hardware may produce 
   different random seeds if one were to just use the 
 
+  - `short_rng_seeds.txt` A small list of rng seeds used for generating the examples.
+
 - `slurm_scripts/` A directory containing some examples of the slurm scripts that were used to 
   generate the desired data. Slurm scripts only work on cluster computers with a Slurm resource 
   manager, so they are generally useless without access to such a cluster, but these are included 
@@ -61,18 +63,33 @@ Here are some brief descriptions of the files and folders contained within this 
 - `runner.sh` A bash script file that may be used to run replication work if one desires. This 
   script should work on all unix-based systems, and mimics much of the behaviour of the Slurm 
   scripts, with the obvious exception that this implementation does not allow for the simutaneous
-  execution of many jobs which is possible in a cluster environment.
+  execution of many jobs which is possible in a cluster environment. The equivalent runner for 
+  Windows machines is `wrunner.ps1`.
 
 - `ca_runner.sh` A bash script file that is tailored to work with the RDS format of the file 
   `CA_cd_2020_map.rds` containing an `smc_map` object for CA at the tract level. This file was
   obtained from the Harvard dataverse at 
   [https://dataverse.harvard.edu/file.xhtml?fileId=6391062&version=14.0](https://dataverse.harvard.edu/file.xhtml?fileId=6391062&version=14.0)
+  The equivalent runner for Windows machines is `wca_runner.ps1`.
 
 - `smc_cli.R` A command-line interface built in R that allows for the usage of scripts to run 
   several samples of SMC without opening RStudio. The default settings for this CLI should be 
   reflective of the default settings found in the [reference material for `redist`](https://alarm-redist.org/redist/reference/index.html)
 
-- `data_processors/` This is a folder that contains the files used 
+- `data_processors/` This is a folder that contains the files used to process the data for the paper.
+  The names of the files should be rather self explanatory as well as their usage.
+
+  - `ancestry_grapher.ipynb` Used to create decendency trees for particular runs
+
+  - `graph_maker.py` Used to produce histograms for the observed b.1.i probabilities for a particular
+    run
+
+  - `make_ratio_report.ipynb` Makes a csv report of the largest probability ratios seen for each 
+    individual run and for each shapefile across all runs
+  
+  - `original_ancestor.ipynb` Makes a csv report of the Mega Parents for a particular shapefile across a 
+    set of runs.
+
 
 
 ## Output Formats
@@ -102,11 +119,66 @@ installed on their system.
 
 ### Linux/MacOS
 
-To prepare the system for replication, simply run the script `setup.sh` from the terminal.
+To prepare the system for replication, most developers should be able to 
+simply run the script `setup.sh` from the terminal. However, there are a couple of 
+small errors that can still appear if the system has not seen much programming use. 
+Here are some tips for getting things working in the event that you experince any issues:
+
+*Linux Common Problem Fixes*
+
+Many of the R libraries that are used within `redist` require extra packages to be installed 
+on the system. In the case of a Debian system, it would be prudent to try to run the following 
+commands before trying to run `./setup.sh`
+
+```shell
+sudo apt-get update
+sudo apt-get install time r-base libudunits2-dev gdal-bin libgdal-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev libfontconfig1-dev libfreetype6-dev libharfbuzz-dev libfribidi-dev
+```
+
+*MacOS Common Problem Fixes*
+
+Installation of the necessary packages tends to go much smoother on MacOS, however, the linker sometimes has 
+some trouble locating the `gfortran` package which is usually installed when `brew install gcc` is invoked
+from the command line. The easiest way to fix this is to just edit the `Makevars` file directly. The standard 
+`Makevars` file (found in `redist/src/Makevars`) is as follows:
+
+```
+CXX_STD = CXX17
+PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) -DARMA_64BIT_WORD=1 -g0
+PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` `"$(R_HOME)/bin/Rscript" -e "RcppThread::LdFlags()"` $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) $(SHLIB_OPENMP_CXXFLAGS)
+```
+
+To add the explicit link to the file, we need to find the location of the static library file. This can be done 
+with the following command:
+
+```shell
+user@Users-Macbook gfortran -print-file-name=libgfortran.a
+
+/opt/homebrew/Cellar/gcc/13.2.0/lib/gcc/current/
+```
+
+Then the updated file should look like:
+
+```
+CXX_STD = CXX17
+PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) -DARMA_64BIT_WORD=1 -g0
+PKG_LIBS = $(SHLIB_OPENMP_CXXFLAGS) `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` `"$(R_HOME)/bin/Rscript" -e "RcppThread::LdFlags()"` $(LAPACK_LIBS) $(BLAS_LIBS) -L/opt/homebrew/Cellar/gcc/13.2.0/lib/gcc/current/ -lgfortran $(FLIBS)
+
+```
 
 ### Windows
 
-To prepare the system for replication, simply run the script `win_setup.bat` using PowerShell or cmd.
+To prepare the system for replication, simply run the script `win_setup.bat` using PowerShell. 
+The runners for replication are written in a powershell script and can be called using the 
+standard `./wrunner.ps1`. As a note, installing everything in Windows can be a bit tricky,
+and does require that the Visual Studio developer suite for C++, RStudio, and RTools are all 
+installed on the system. Also, the Rscript executable should be added to the user's path.
+This is generally found in a folder like `C:\Program Files\R\R-4.x.x\bin\R.exe`
+
+In the course of running the replication, if you see a error saying something to the effect of 
+the locale being incorrect, this likely means that your terminal environment and R environment 
+are not in sync. Fixing this can be a bit troublesome, so it is best to just try to run the 
+desired script from within the RStudio console.
 
 ### Using the CLI
 

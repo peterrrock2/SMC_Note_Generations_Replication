@@ -18,25 +18,13 @@ Projecting to CRS 3857
 Warning message:
 Missing CRS, assuming NAD83 (4269). 
 Split [0/49] ■                                | ETA?
-Split [1/49] ■■                               | ETA 2m
-Split [4/49] ■■■                              | ETA 1m
-Split [7/49] ■■■■■                            | ETA50s
-Split [11/49] ■■■■■■■■                         | ETA40s
-Split [14/49] ■■■■■■■■■■                       | ETA35s
-Split [20/49] ■■■■■■■■■■■■■                    | ETA25s
-Split [28/49] ■■■■■■■■■■■■■■■■■■               | ETA15s
-Split [38/49] ■■■■■■■■■■■■■■■■■■■■■■■■         | ETA 7s
-Split [48/49] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   | ETA 1s
+Split [14/49] ■■■■■■■■■■                       | ETA 4s
 Split [49/49] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  | ETA 0s
 
-Warning message:
-Population tempering is increasing the variance of the resampling weights by
-over 50% at some steps.
-• Consider lowering `pop_temper`. 
 SMC: 20 sampled plans of 50 districts on 2,500 units
 `adapt_k_thresh`=0.985 • `seq_alpha`=0.5
-`est_label_mult`=1 • `pop_temper`=0.001
-Plan diversity 80% range: 0.023 to 0.228
+`est_label_mult`=1 • `pop_temper`=0
+Plan diversity 80% range: 0.036 to 0.134
 ✖ WARNING: Low plan diversity
 Sampling diagnostics for SMC run 1 of 1 (20 samples)
 • Watch out for low effective samples, very low acceptance rates (less than
@@ -48,24 +36,24 @@ samples. Examine the diversity plot with `hist(plans_diversity(plans),
 breaks=24)`. Consider weakening or removing constraints, or increasing the
 population tolerance. If the acceptance rate drops quickly in the final splits,
 try increasing `pop_temper` by 0.01.
-	Command being timed: "Rscript smc_cli.R --shapefile examples/50x50_grid --pop_tol 0.05 --pop_col TOTPOP --n_dists 50 --n_sims 20 --rng_seed 14328277 --pop_temper 0.001 --output_file examples/outputs/50x50_grid/14328277_50x50_grid_to_50_with_20_sims.csv"
-	User time (seconds): 164.40
-	System time (seconds): 0.23
-	Percent of CPU this job got: 588%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:27.96
+	Command being timed: "Rscript smc_cli.R --shapefile examples/50x50_grid --pop_tol 0.01 --pop_col TOTPOP --n_dists 50 --n_sims 20 --rng_seed 14328277 --output_file examples/outputs/50x50_grid/14328277_50x50_grid_to_50_with_20_sims.csv"
+	User time (seconds): 31.01
+	System time (seconds): 0.33
+	Percent of CPU this job got: 558%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.61
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 253984
+	Maximum resident set size (kbytes): 247816
 	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 3
-	Minor (reclaiming a frame) page faults: 49926
-	Voluntary context switches: 20347
-	Involuntary context switches: 15564
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 50022
+	Voluntary context switches: 50962
+	Involuntary context switches: 11213
 	Swaps: 0
 	File system inputs: 0
-	File system outputs: 216
+	File system outputs: 184
 	Socket messages sent: 0
 	Socket messages received: 0
 	Signals delivered: 0

@@ -189,15 +189,12 @@ plans_list <- lapply(1:nrow(plans_mat), function(i) as.vector(plans_mat[i,]))
 
 json_data <- list(step = argv$n_dists, final_wgts = weights(plans))#, districts = plans_list)
 json_output <- toJSON(json_data, auto_unbox = TRUE)
-# plans = plans %>%
-#     mutate(pres_d = group_frac(seed, group_pop=seed[["T16PRESD"]], total_pop=seed[["TOTPOP"]]))
 
 cat(paste0("\n",json_output))
 
 final_summary <- capture.output(summary(plans))
 
 cat("\n{\"summary\": \"", paste(final_summary, collapse = "\n"), "\"}")
-# summary(plans)
 
 file_name <- paste0("./", argv$output_file)
 write.csv(plans, file_name)

@@ -1,7 +1,18 @@
 #!/bin/bash
 
+# R -e "install.packages('doRNG', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('servr', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('patchwork', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('argparser', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('sf', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('dplyr', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('ggplot2', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('devtools', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('jsonlite', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('redistmetrics', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('RcppArmadillo', repos='http://cran.rstudio.com/')"
+# R -e "install.packages('RcppThread', repos='http://cran.rstudio.com/')"
 
-R -e "install.packages(c('argparser', 'sf', 'dplyr', 'ggplot2', 'devtools', 'jsonlite'), repos='http://cran.rstudio.com/')"
 git clone https://github.com/peterrrock2/redist.git 
 cd redist/
 git checkout tags/probs_and_generations_v1

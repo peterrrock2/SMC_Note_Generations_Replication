@@ -29,12 +29,11 @@ for n_sims in "${sims_list[@]}"; do
     for rng_seed in "${rng_seeds[@]}"; do
         /usr/bin/time -v Rscript smc_cli.R \
             --shapefile "${shapefile_dir}${shapefile_name}" \
-            --pop_tol 0.05 \
+            --pop_tol $pop_tol \
             --pop_col "${pop_col}" \
             --n_dists $n_dists \
             --n_sims $n_sims \
             --rng_seed $rng_seed \
-            --pop_temper 0.001 \
             --output_file "${output_dir}/${rng_seed}_${shapefile_name}_to_${n_dists}_with_${n_sims}_sims.csv" \
             > "${output_dir}/${rng_seed}_${shapefile_name}_to_${n_dists}_with_${n_sims}_sims.jsonl" \
             2> "${log_dir}/${rng_seed}_${shapefile_name}_to_${n_dists}_with_${n_sims}_sims.log" 
