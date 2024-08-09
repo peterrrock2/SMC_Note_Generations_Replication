@@ -2,3 +2,6 @@
 redist/*
 .vscode/ 
 redist/
+data/1000*
+.envrc
+.venv

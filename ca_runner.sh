@@ -1,6 +1,6 @@
 #!/bin/bash
 
-map_dir="examples/"
+map_dir="./data/shapefiles/"
 map_name="CA_cd_2020_map"
 
 

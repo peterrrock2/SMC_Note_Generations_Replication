@@ -2,13 +2,10 @@
 
 This repository is intended to serve as documentation of the processes and code used
 in the numerical computations for the paper 
-[PUT PAPER HERE](#replication-repository-for-smc-note).
+[Repetition effects in a Sequential Monte Carlo sampler](https://mggg.org/SMC-repetition).
 
 In order to obtain the statistics within this paper, some light modifications to the base 
-code made by the [ALARM]() lab were necessary. The full log of the changes can be found 
-in the following link: 
-
-Full Changelog: [Original_Code..Modified_Code](https://github.com/peterrrock2/redist/compare/original_code...peterrrock2:redist:probs_and_generations_v1)
+code made by the [ALARM](https://github.com/alarm-redist/redist) lab were necessary.
 
 For the convenience of the reader, here is a quick synopsis of the changes that were made
 (the numbers $n$ and $m$ respectively refer to the number of districts and the number of 
@@ -30,8 +27,12 @@ simulations throughout):
   of the parent plan from which the new district was to be split. So if the (1-indexed)
   row $5$ column $3$ contains the value $7$, then this indicates that the the plan 
   corresponding to position $(5,3)$, which contains $5$ districts, obtained its $5$-th
-  district from splitting off a district chunk form the remaining portion of the partial 
+  district by splitting off a district chunk form the remaining portion of the partial 
   plan corresponding to position $(4,7)$.
+
+The full log of the changes can be found in the following link: 
+
+Full Changelog: [Original_Code..Modified_Code](https://github.com/mggg/redist-fork/compare/original_code...mggg:redist-fork:probs_and_generations_v1)
 
 ## Included Files
 
@@ -76,21 +77,24 @@ Here are some brief descriptions of the files and folders contained within this 
   several samples of SMC without opening RStudio. The default settings for this CLI should be 
   reflective of the default settings found in the [reference material for `redist`](https://alarm-redist.org/redist/reference/index.html)
 
-- `data_processors/` This is a folder that contains the files used to process the data for the paper.
-  The names of the files should be rather self explanatory as well as their usage.
 
-  - `ancestry_grapher.ipynb` Used to create decendency trees for particular runs
-
-  - `graph_maker.py` Used to produce histograms for the observed b.1.i probabilities for a particular
-    run
-
-  - `make_ratio_report.ipynb` Makes a csv report of the largest probability ratios seen for each 
-    individual run and for each shapefile across all runs
-  
-  - `original_ancestor.ipynb` Makes a csv report of the Mega Parents for a particular shapefile across a 
-    set of runs.
-
-
+- `table_and_figure_scripts/` This folder contains the scripts used to generate the tables and 
+  figures for the paper 
+  [Repetition effects in a Sequential Monte Carlo sampler](https://mggg.org/SMC-repetition).
+  The number of each of subdirectories should correspond to the number of the table or figure in 
+  the paper. Also included are the generated CSV or PNG files for each of these scripts.
+  - `table2/` Contains the scripts used to generate the table 2 of the paper. In particular,
+    the script `table_2_repetition_info.py` is used to collect information on the number times
+    a top-level ancestors appears in the final ensemble of plans. The script `table_2_data_aggregator.py`
+    then collects statistics on these values. 
+  - `figure5/` Contains the script `figure_5_hist_maker.py` which is used to collect the `b1_probs` 
+    for each district for each iteration of the SMC process and then make a histogram of the
+    distribution of these values compared to the uniform distribution.
+  - `table3/` Contains the script `table_3_megaparent_info.py` which is used to collect the mega
+    parents for each shapefile for each threshold value (the $F(D,\varphi)$ values in the paper).
+  - `figure6/` Contains the script `make_generational_descendency.py` is used to track the the
+    maximum number of plans in the final ensemble of which are a direct descendant of a plan
+    in the given generation.
 
 ## Output Formats
 

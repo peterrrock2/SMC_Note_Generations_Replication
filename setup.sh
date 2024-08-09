@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Comment in the following lines to install the necessary R packages for repliation
+
 # R -e "install.packages('doRNG', repos='http://cran.rstudio.com/')"
 # R -e "install.packages('servr', repos='http://cran.rstudio.com/')"
 # R -e "install.packages('patchwork', repos='http://cran.rstudio.com/')"
@@ -13,7 +15,7 @@
 # R -e "install.packages('RcppArmadillo', repos='http://cran.rstudio.com/')"
 # R -e "install.packages('RcppThread', repos='http://cran.rstudio.com/')"
 
-git clone https://github.com/peterrrock2/redist.git 
+git clone https://github.com/mggg/redist-fork.git 
 cd redist/
 git checkout tags/probs_and_generations_v1
 R CMD INSTALL .
