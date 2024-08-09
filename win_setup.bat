@@ -12,7 +12,7 @@ Rscript -e "install.packages('redistmetrics', repos='http://cran.rstudio.com/')"
 Rscript -e "install.packages('RcppArmadillo', repos='http://cran.rstudio.com/')"
 Rscript -e "install.packages('RcppThread', repos='http://cran.rstudio.com/')"
 
-git clone https://github.com/peterrrock2/redist.git 
+git clone https://github.com/mggg/redist-fork.git 
 cd redist/
 git checkout tags/probs_and_generations_v1
 R CMD INSTALL .
